@@ -1,0 +1,16 @@
+FROM node:alpine
+
+#create the working directory
+WORKDIR "/app"
+
+# add json packages from local
+COPY package.json .
+
+# pull all dependences
+RUN npm install
+
+# add everything inside the current direcotry to the app directory 
+COPY . . 
+
+#run the container
+CMD ["npm", "run", "start"]

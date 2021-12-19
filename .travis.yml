@@ -1,0 +1,58 @@
+
+language: generic 
+
+# require sudo to that we have proper permission to execute code
+sudo: required
+
+# Ensure Docker is pre-installed
+services:
+  - docker
+
+# Things to be done before testing or deployment
+before_install:
+  # build app for docker development
+  - docker build -t bogeyduffer/docker-react -f ./client/Dockerfile.dev ./client
+
+# A series of commands to be run - return codes of other zero (0) assumes error
+script:
+  - docker run -e CI=true bogeyduffer/docker-react npm run test -- --coverage
+
+
+# if the tests run successfully, build all the production images.
+after_sucess:
+  - docker build -t bogeyduffer/multi-client -f ./client 
+  - docker build -t bogeyduffer/multi-ngnix -f ./nginx
+  - docker build -t bogeyduffer/multi-server -f ./server
+  - docker build -t bogeyduffer/multi-workder -f ./worker
+
+# Log in to Docker CLI
+  # This command gets the password and passes it to the docker login via standard in
+  - echo "$DOCKER-PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #         ^               ^                                    ^
+  #         |               |                                    |- Inserts Received Password
+  #         |               |- Pipes in (passes) Password to docker login
+  #         |- Gets the password
+
+# Push new images to Docker Hub
+  - docker push bogeyduffer/multi-client
+  - docker push bogeyduffer/multi-ngnix
+  - docker push bogeyduffer/multi-server
+  - docker push bogeyduffer/multi-workder
+
+
+# # Deploy the application to AWS
+# deploy:
+#   provider: elasticbeanstalk
+#   # region is found in the url provided by AWS
+#   # example: Docker-env.qbtbvwcxmh.us-west-2.elasticbeanstalk
+#   # the region from above is "us-west-2"
+#   region: "us-east-1"
+#   app: "docker-react" # from the URL-like name at the top of you app page on AWS
+#   env: "Dockerreact-env" # from the URL-like name at the top of you app page on AWS
+#   bucket-name: "elasticbeanstalk-us-east-1-640819054210"
+#   bucket-path: "docker-react" #usually the same name as your "app:" name.
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: $AWS_SECRET_KEY
+

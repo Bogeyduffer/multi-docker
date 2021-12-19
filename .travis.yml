@@ -40,6 +40,8 @@ after_sucess:
   - docker push bogeyduffer/multi-server
   - docker push bogeyduffer/multi-workder
 
+
+# This may not be needed
 # # Deploy the application to AWS
 # deploy:
 #   provider: elasticbeanstalk

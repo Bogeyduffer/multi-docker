@@ -34,6 +34,7 @@ after_sucess:
   #         |               |- Pipes in (passes) Password to docker login
   #         |- Gets the password
 
+
 # Push new images to Docker Hub
   - docker push bogeyduffer/multi-client
   - docker push bogeyduffer/multi-ngnix

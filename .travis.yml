@@ -11,11 +11,11 @@ services:
 # Things to be done before testing or deployment
 before_install:
   # build app for docker development
-  - docker build -t bogeyduffer/docker-react -f ./client/Dockerfile.dev ./client
+  - docker build -t bogeyduffer/docker-client -f ./client/Dockerfile.dev ./client
 
 # A series of commands to be run - return codes of other zero (0) assumes error
 script:
-  - docker run -e CI=true bogeyduffer/docker-react npm run test -- --coverage
+  - docker run -e CI=true bogeyduffer/docker-client npm run test -- --coverage
 
 
 # if the tests run successfully, build all the production images.

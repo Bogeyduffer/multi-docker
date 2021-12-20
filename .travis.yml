@@ -23,7 +23,7 @@ after_sucess:
   - docker build -t bogeyduffer/multi-client -f ./client 
   - docker build -t bogeyduffer/multi-ngnix -f ./nginx
   - docker build -t bogeyduffer/multi-server -f ./server
-  - docker build -t bogeyduffer/multi-workder -f ./worker
+  - docker build -t bogeyduffer/multi-worker -f ./worker
 
 # Log in to Docker CLI
   # This command gets the password and passes it to the docker login via standard in
@@ -36,10 +36,10 @@ after_sucess:
 
 
 # Push new images to Docker Hub
-  - docker push bogeyduffer/projects/multi-client
-  - docker push bogeyduffer/projects/multi-ngnix
-  - docker push bogeyduffer/projects/multi-server
-  - docker push bogeyduffer/projects/multi-worker
+  - docker push bogeyduffer/multi-client
+  - docker push bogeyduffer/multi-ngnix
+  - docker push bogeyduffer/multi-server
+  - docker push bogeyduffer/multi-worker
 
 
 # This may not be needed

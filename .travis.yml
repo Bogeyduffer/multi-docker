@@ -25,6 +25,8 @@ after_sucess:
   - docker build -t bogeyduffer/multi-server ./server
   - docker build -t bogeyduffer/multi-worker ./worker
 
+
+
 # Log in to Docker CLI
   # This command gets the password and passes it to the docker login via standard in
   # - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD docker.io

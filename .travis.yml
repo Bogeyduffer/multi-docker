@@ -28,7 +28,7 @@ after_sucess:
 # Log in to Docker CLI
   # This command gets the password and passes it to the docker login via standard in
   # - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD docker.io
-  - echo "$DOCKER-PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #         ^               ^                                    ^
   #         |               |                                    |- Inserts Received Password
   #         |               |- Pipes in (passes) Password to docker login

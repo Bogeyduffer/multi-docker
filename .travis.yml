@@ -36,10 +36,10 @@ after_sucess:
 
 
 # Push new images to Docker Hub
-  - docker push bogeyduffer/multi-client
-  - docker push bogeyduffer/multi-ngnix
-  - docker push bogeyduffer/multi-server
-  - docker push bogeyduffer/multi-worker
+  - docker push bogeyduffer/projects/multi-client
+  - docker push bogeyduffer/projects/multi-ngnix
+  - docker push bogeyduffer/projects/multi-server
+  - docker push bogeyduffer/projects/multi-worker
 
 
 # This may not be needed

@@ -39,7 +39,7 @@ after_sucess:
   - docker push bogeyduffer/multi-client
   - docker push bogeyduffer/multi-ngnix
   - docker push bogeyduffer/multi-server
-  - docker push bogeyduffer/multi-workder
+  - docker push bogeyduffer/multi-worker
 
 
 # This may not be needed

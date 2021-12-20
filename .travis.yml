@@ -20,10 +20,10 @@ script:
 
 # if the tests run successfully, build all the production images.
 after_sucess:
-  - docker build -t bogeyduffer/multi-client -f ./client 
-  - docker build -t bogeyduffer/multi-ngnix -f ./nginx
-  - docker build -t bogeyduffer/multi-server -f ./server
-  - docker build -t bogeyduffer/multi-worker -f ./worker
+  - docker build -t bogeyduffer/multi-client ./client 
+  - docker build -t bogeyduffer/multi-ngnix ./nginx
+  - docker build -t bogeyduffer/multi-server ./server
+  - docker build -t bogeyduffer/multi-worker ./worker
 
 # Log in to Docker CLI
   # This command gets the password and passes it to the docker login via standard in
@@ -36,6 +36,8 @@ after_sucess:
 
 
 # Push new images to Docker Hub
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
   - docker push bogeyduffer/multi-client
   - docker push bogeyduffer/multi-ngnix
   - docker push bogeyduffer/multi-server

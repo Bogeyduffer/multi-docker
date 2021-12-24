@@ -17,7 +17,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn Multi-Docker Here and Now. Or maybe Just React.
           </a>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>

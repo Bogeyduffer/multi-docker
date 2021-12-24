@@ -4,13 +4,13 @@ FROM node:alpine
 WORKDIR "/app"
 
 # add json packages from local
-COPY package.json .
+COPY ./package.json ./
 
 # pull all dependences
 RUN npm install
 
 # add everything inside the current direcotry to the app directory 
-COPY . . 
+COPY . .
 
 #run the container
 CMD ["npm", "run", "dev"]

@@ -40,7 +40,3 @@ after_sucess:
   - docker push bogeyduffer/multi-ngnix
   - docker push bogeyduffer/multi-server
   - docker push bogeyduffer/multi-worker
-
-
-
-

@@ -51,7 +51,6 @@ deploy:
   bucket_path: 'multi-docker'
   on:
     branch: master
-    
 
   # possible code ?
   # access_key_id: $AWS_ACCESS_KEY

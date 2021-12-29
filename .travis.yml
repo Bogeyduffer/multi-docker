@@ -12,7 +12,7 @@ before_install:
   # build app for docker development
   - docker build -t bogeyduffer/docker-client -f ./client/Dockerfile.dev ./client
 
-# A series of commands to be run - return codes of other zero (0) assumes error
+# A series of commands to run tests - return codes of other zero (0) assumes error
 script:
   - docker run -e CI=true bogeyduffer/docker-client npm run test -- --coverage
 

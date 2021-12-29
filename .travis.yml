@@ -20,7 +20,7 @@ script:
 # if the tests run successfully, build all the production images.
 after_sucess:
   - docker build -t bogeyduffer/multi-client ./client 
-  - docker build -t bogeyduffer/multi-ngnix ./nginx
+  - docker build -t bogeyduffer/multi-nginx ./nginx
   - docker build -t bogeyduffer/multi-server ./server
   - docker build -t bogeyduffer/multi-worker ./worker
 

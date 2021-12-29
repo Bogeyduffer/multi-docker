@@ -1,5 +1,5 @@
 # Download nginx Docker Image
-FROM nginx  
+FROM nginx
 
 # Copy our default.conf into nginex Docker image overwriting the existing one.
 COPY ./default.conf /etc/nginx/conf.d/default.conf

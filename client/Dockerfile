@@ -10,7 +10,7 @@ COPY ./package.json ./
 RUN npm install
 
 # add everything inside the current direcotry to the app directory 
-COPY . . 
+COPY . .
 
 # Build the container
 RUN npm run build
@@ -22,7 +22,7 @@ FROM nginx
 EXPOSE 3000
 
 # Copy over the config ".conf" file to be used (replaces the defaul file in nginx)
-COPY ./nginx/default.conf etc/nginx/conf.d/default.conf
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Copy the first phase build assets
 COPY --from=builder /app/build /usr/share/nginx/html

@@ -18,7 +18,7 @@ RUN npm run build
 # Second phase of the "nginx build" process
 FROM nginx
 
-# Expost the port of the container
+# Instruction to AWS to expost the port of the container
 EXPOSE 80
 
 # Copy over the config ".conf" file to be used (replaces the defaul file in nginx)

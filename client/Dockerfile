@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx
 
 # Expost the port of the container
-EXPOSE 3000
+EXPOSE 80
 
 # Copy over the config ".conf" file to be used (replaces the defaul file in nginx)
 COPY ./nginx/default.conf etc/nginx/conf.d/default.conf

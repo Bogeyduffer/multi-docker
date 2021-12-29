@@ -41,24 +41,24 @@ after_sucess:
   - docker push bogeyduffer/multi-server
   - docker push bogeyduffer/multi-worker
 
-# Setup deploy script
-deploy:
-  provider: elasticbeanstalk
-  region: 'us-east-1'
-  app: 'multi-docker'
-  env: 'MultiDocker-env'
-  bucket_name: 'elasticbeanstalk-us-east-1-640819054210'
-  bucket_path: 'multi-docker'
-  on:
-    branch: master
+# # Setup deploy script
+# deploy:
+#   provider: elasticbeanstalk
+#   region: 'us-east-1'
+#   app: 'multi-docker'
+#   env: 'MultiDocker-env'
+#   bucket_name: 'elasticbeanstalk-us-east-1-640819054210'
+#   bucket_path: 'multi-docker'
+#   on:
+#     branch: master
 
-  # possible code ?
-  # access_key_id: $AWS_ACCESS_KEY
-  # secret_access_key: $AWS_SECRET_KEY
+#   # possible code ?
+#   # access_key_id: $AWS_ACCESS_KEY
+#   # secret_access_key: $AWS_SECRET_KEY
 
   
-  # # video code
-  access_key_id: $AWS_ACCESS_KEY
-    secure: $AWS_SECRET_KEY
+#   # # video code
+#   access_key_id: $AWS_ACCESS_KEY
+#     secure: $AWS_SECRET_KEY
 
 

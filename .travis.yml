@@ -1,7 +1,6 @@
 # require sudo to that we have proper permission to execute code
 sudo: required
 
-
 language: generic 
 
 # Ensure Docker is pre-installed

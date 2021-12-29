@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx
 
 # Instruction to AWS to expost the port of the container
-EXPOSE 80
+EXPOSE 3000
 
 # Copy over the config ".conf" file to be used (replaces the defaul file in nginx)
 COPY ./nginx/default.conf etc/nginx/conf.d/default.conf
